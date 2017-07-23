@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <constant name="struts.devMode" value="true"></constant>
+   <constant name="struts.ui.theme" value="simple" />
+   
+   <package name="common" namespace="/" extends="struts-default">
+    <interceptors>
+       		<interceptor name="loginInterceptor" class="com.neusoft.intercepter.LoginIntercepter"></interceptor>
+       		<interceptor-stack name="myStack">
+       			<interceptor-ref name="defaultStack"></interceptor-ref>
+       			<interceptor-ref name="loginInterceptor">
+       				<param name="excludeMethods">login</param>
+       			</interceptor-ref>
+       		</interceptor-stack>
+       	</interceptors>
+       	<default-interceptor-ref name="myStack"></default-interceptor-ref>
+       	
+       	<default-action-ref name="login"></default-action-ref>
+       	
+      <global-results>	
+      <result name="login">/WEB-INF/pages/login.jsp</result>
+      </global-results>
+   <action name="login">
+        	<result name="login">/WEB-INF/pages/login.jsp</result>
+        	<result name="success" type="redirectAction">StaffAction_home</result>
+        	
+        </action> 
+     <action name="uiAction_*_*">
+        	<result>/WEB-INF/pages/{1}/{2}.jsp</result>
+        </action>
+   
+  </package>
+
+     <include file="crm/struts_dep.xml"/>
+     <include file="crm/struts_staff.xml"/>
+     <include file="crm/struts_post.xml"/>
+     <include file="crm/struts_course.xml"/>
+      <include file="crm/struts_class.xml"/>
+       <include file="crm/struts_student.xml"/>
+</struts>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+ <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="staff" namespace="/" extends="common">
+   
+		<action name="StaffAction_login" class="com.neusoft.action.StaffAction" method="login">
+			<result type="redirectAction">StaffAction_home</result>
+		</action>
+		
+		<action name="StaffAction_home" class="com.neusoft.action.StaffAction" method="home">
+			<result>/WEB-INF/pages/frame.jsp</result>
+			<result name="input">/WEB-INF/pages/login.jsp</result>
+		</action>
+		
+		<action name="StaffAction_listStaff" class="com.neusoft.action.StaffAction" method="listStaff">
+			<result>/WEB-INF/pages/staff/listStaff.jsp</result>
+		</action>
+		<action name="StaffAction_postSelect" class="com.neusoft.action.StaffAction" method="postSelect">
+			
+		</action>
+		<action name="StaffAction_staffFind" class="com.neusoft.action.StaffAction" method="staffFind">
+			<result>/WEB-INF/pages/staff/listStaff.jsp</result>
+		</action>
+		<action name="StaffAction_editStaff" class="com.neusoft.action.StaffAction" method="editStaff">
+			<result>/WEB-INF/pages/staff/editStaff.jsp</result>
+		</action>
+		<action name="StaffAction_update" class="com.neusoft.action.StaffAction" method="update">
+			<result type="redirectAction">StaffAction_listStaff</result>
+		</action>
+		<action name="StaffAction_add" class="com.neusoft.action.StaffAction" method="add">
+			<result>/WEB-INF/pages/staff/addStaff.jsp</result>
+		</action>
+		<action name="StaffAction_insert" class="com.neusoft.action.StaffAction" method="insert">
+			<result type="redirectAction">StaffAction_listStaff</result>
+		</action>
+		<action name="StaffAction_loginout" class="com.neusoft.action.StaffAction" method="loginout">
+			<result>/WEB-INF/pages/login.jsp</result>
+		</action>
+		
+    </package>
+
+  
+
+</struts>

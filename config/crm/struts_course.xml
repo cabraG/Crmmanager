@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+ <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="course" namespace="/" extends="common">
+    <action name="CourseAction_listorfind" class="com.neusoft.action.CourseAction" method="listorfind">
+    <result>/WEB-INF/pages/coursetype/listCourse.jsp</result>
+    </action>
+    <action name="CourseAction_clearcourse" class="com.neusoft.action.CourseAction" method="clearcourse">
+    <result type="redirectAction">CourseAction_listorfind</result>
+    </action>
+   <action name="CourseAction_edit" class="com.neusoft.action.CourseAction" method="edit">
+    <result>/WEB-INF/pages/coursetype/addOrEditCourse.jsp</result>
+    </action>
+     <action name="CourseAction_update" class="com.neusoft.action.CourseAction" method="update">
+    <result type="redirectAction">CourseAction_listorfind</result>
+	 </action>
+	
+	 <action name="CourseAction_insert" class="com.neusoft.action.CourseAction" method="insert">
+    <result type="redirectAction">CourseAction_listorfind</result>
+	 </action>
+    </package>
+
+  
+
+</struts>

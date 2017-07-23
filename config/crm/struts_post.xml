@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+ <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="post" namespace="/" extends="common">
+    <action name="PostAction_listorfind" class="com.neusoft.action.PostAction" method="listorfind">
+    <result>/WEB-INF/pages/post/listPost.jsp</result>
+    </action>
+    <action name="PostAction_clearpost" class="com.neusoft.action.PostAction" method="clearpost">
+    <result type="redirectAction">PostAction_listorfind</result>
+    </action>
+    <action name="PostAction_edit" class="com.neusoft.action.PostAction" method="edit">
+    <result >/WEB-INF/pages/post/addOrEditPost.jsp</result>
+    </action>
+      <action name="PostAction_update" class="com.neusoft.action.PostAction" method="update">
+    <result type="redirectAction">PostAction_listorfind</result>
+    </action>
+      <action name="PostAction_add" class="com.neusoft.action.PostAction" method="add">
+    <result >/WEB-INF/pages/post/addOrEditPost.jsp</result>
+    </action>
+    <action name="PostAction_insert" class="com.neusoft.action.PostAction" method="insert">
+    <result type="redirectAction">PostAction_listorfind</result>
+    </action>
+    
+	
+    </package>
+
+  
+
+</struts>

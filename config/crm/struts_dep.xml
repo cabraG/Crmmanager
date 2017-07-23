@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.ui.theme" value="simple" />
+<package name="dep" namespace="/" extends="common">
+   	<action name="DepartmentAction_listorfind" class="com.neusoft.action.DepartmentAction" method="deplist">
+   <result>/WEB-INF/pages/department/listDepartment.jsp</result>
+   
+   </action>
+   <action name="DepartmentAction_cleardep" class="com.neusoft.action.DepartmentAction" method="cleardep">
+   <result type="redirectAction">/DepartmentAction_listorfind</result>
+   </action>
+    <action name="DepartmentAction_edit" class="com.neusoft.action.DepartmentAction" method="edit">
+   <result>/WEB-INF/pages/department/addOrEditDepartment.jsp</result>
+   </action>
+    <action name="DepartmentAction_update" class="com.neusoft.action.DepartmentAction" method="update">
+   <result type="redirectAction">/DepartmentAction_listorfind</result>
+   </action>
+     <action name="DepartmentAction_insert" class="com.neusoft.action.DepartmentAction" method="insert">
+   <result type="redirectAction">/DepartmentAction_listorfind</result>
+   </action>
+   
+  
+   </package> 
+
+  
+
+</struts>
